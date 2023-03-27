@@ -25,7 +25,7 @@ pelo FastAPI que faz com que eu ache agradável trabalhar com ele.
 
 Neste projeto utilizei o ReactJs como framework e portanto para conseguir rodar esse projeto em
 sua máquina será necessário ter o NodeJs instalado e para ter todas as bibliotecas do projeto baixadas
-basta entrar na pasta frontend através do terminal: `cd frontend` em seguida executar `npm install` assim todas
+basta entrar na pasta frontend através do terminal: `cd frontend` em seguida executar `npm build` assim todas
 as dependências front end do projeto serão instaladas e para finalizar `npm start`. Automaticamente seu browser
 irá abrir no [http://localhost:3000](http://localhost:3000)
 
