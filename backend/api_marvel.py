@@ -16,8 +16,8 @@ class GetMarvel:
             personagens = self.api.characters.all(limit = 100)['data']['results']
         return personagens
 
-    def correspondente(self, id=int):
-        personagem = self.api.characters.all(nameStartsWith=id[0:1])['data']['results']
+    def correspondente(self, id):
+        personagem = self.api.characters.all(nameStartsWith=id[randrange(0,len(id))])['data']['results']
         personagem = personagem[randrange(0,len(personagem))]
         id = personagem['id']
         comics = self.api.characters.comics(identifier=id)['data']['results']
