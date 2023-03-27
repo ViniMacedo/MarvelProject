@@ -3,9 +3,9 @@ from api_marvel import GetMarvel
 import uvicorn
 
 
-app = FastAPI()
+app = FastAPI()  # ligando o FastAPI
 
-api_marvel = GetMarvel()
+api_marvel = GetMarvel()  # atribuindo a classe a uma variavel, nesta classe estão as chamadas para a API
 
 #adicionando CORS
 from fastapi.middleware.cors import CORSMiddleware
@@ -16,11 +16,12 @@ app.add_middleware(CORSMiddleware,
                    allow_origins = origins,
                    allow_credentials = True,
                    allow_methods = ["*"],
-                   allow_headers = ["*"])
+                   allow_headers = ["*"])  # adicionando o origins ao CORS para a aplicação não ser barrada
 @app.get('/')
-def index(offset: int = 0):
-    personagens = api_marvel.personagens(offset=offset)
+def index(offset: int = 0):  # rota principal com todos os personagens
+    personagens = api_marvel.personagens(offset=offset) #
     result = []
+    # pegando somente as informações que me interessam para levar para o front e acelerar o processo
     for personagem in personagens:
         item = {}
         item["id"] = personagem['id']
@@ -32,11 +33,12 @@ def index(offset: int = 0):
     return result
 
 @app.get('/unic')
-def index(nome: str):
+def index(nome: str): # rota secundaria para personagem unico
     id = nome
     personagem,quadrinhos= api_marvel.correspondente(id)
     result = {}
     item = {}
+    # pegando somente as informações que me interessam para levar para o front e acelerar o processo
     item["id"] = personagem['id']
     item["name"] = personagem['name']
     item["description"] = personagem['description']
@@ -45,6 +47,6 @@ def index(nome: str):
     result['comics'] = quadrinhos
     return result
 
-
+# debug da aplicação local
 if __name__ == "__main__":
     uvicorn.run(app,host ="0.0.0.0", port = 8000)

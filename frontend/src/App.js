@@ -5,6 +5,7 @@ import './App.css';
 import ResponsiveAppBar from "./componentes/NavBar";
 import BasicTabs from "./componentes/Tab";
 
+//criei um tema geral para mudar a fonte usada no projeto
 const theme = createTheme({
   typography: {
     fontFamily: [

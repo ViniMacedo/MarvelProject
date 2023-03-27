@@ -9,7 +9,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import Box from '@mui/material/Box';
 
-
+//Esta é a página principal que é responsável pelo fornecimento dos personagens, aqui também há a paginação para buscar os personagens seguintes
 
 export default function Cards() {
     const [persons,setPersons] = useState([]);
@@ -87,9 +87,6 @@ export default function Cards() {
                     </Grid>
                 ))}
             </Grid>
-            <Box sx={{display:'flex',width:'50%',justifyContent:"space-between",margin:'auto', marginBottom:5}}>
-                <Pagination sx={{margin:"auto",justifyContent:"space-around"}} count={15} onChange={(event, pageNumber) => handleChangePagination(event, pageNumber)}/>
-            </Box>
         </Box>
     </div>
   );

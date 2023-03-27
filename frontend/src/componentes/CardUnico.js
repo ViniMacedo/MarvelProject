@@ -9,22 +9,13 @@ import {useState} from "react";
 import axios from "axios";
 import Box from '@mui/material/Box';
 
+//Nesta pagina iremos gerar alguns conteudos somente quando solicitado pelo usuario, sendo esses conteudos o personagem e os quadrinhos que ele participa
 
 export default function CardUnico() {
     const [conteudo,setConteudo] = useState([]);
     const [name,setName] = useState('');
     const [personagem,setPersonagem] = useState(null);
     const [comics,setComics] = useState([]);
-    // useEffect(() => {
-    //     axios
-    //         .get("http://localhost:8000/unic", { params: { nome: nome } })
-    //         .then((response) =>{
-    //             console.log(response.data)
-    //             setConteudo(response.data)
-    //         })
-    //
-    //
-    // },[])
 
     const handleDescobirClick = () => {
         setConteudo([])
